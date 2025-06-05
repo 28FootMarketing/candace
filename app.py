@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Candace Bot - Case Manager", page_icon="🧭", layout="centered")
 
-st.title("🧭 Candace: The Accountability Anchor")
+st.title("🧭 Candace Bot: The Accountability Anchor")
 st.subheader("Case Manager & Progress Tracker")
 
 st.markdown("**Style of Play:** Versatile, dependable, always on point")
@@ -41,7 +41,7 @@ reminder_interval = st.radio("How often should Candace check in?", [
     "Weekly", "Bi-weekly", "Monthly"
 ])
 
-contact_method = st.selectbox("How should she remind you?", ["Email", "Text", "In-App Message"])
+contact_method = st.multiselect("How should she remind you?", ["Email", "Text", "Phone Call"])
 contact_info = st.text_input("Contact Info for Check-Ins:")
 
 if st.button("Start Tracking with Candace"):
@@ -50,7 +50,7 @@ if st.button("Start Tracking with Candace"):
     **Current Stage:** {current_stage}  
     **Tasks Completed:** {', '.join(tasks_done)}  
     **Reminder Frequency:** {reminder_interval}  
-    **Contact:** via {contact_method} → {contact_info}
+    **Contact Methods:** {', '.join(contact_method)} → {contact_info}
     """)
     st.info("Candace says: Progress is a habit. Stay focused and follow through.")
     st.balloons()
